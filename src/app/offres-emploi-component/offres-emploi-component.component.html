@@ -1,0 +1,39 @@
+
+<br>
+
+<div>
+ <input type="string" name="filter" placeholder="entreprise" [(ngModel)]="entreprise">
+</div>
+<button type="button" class="btn btn-primary" (click)="nb_emploi()"> Bilan </button>
+<p>{{count}}</p>
+
+
+<br>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let emploi of listeEmploi, let i =index ">
+        <div *ngIf="emploi.entreprise == entreprise || entreprise == null"> 
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+
+                <h5 class="card-title"> {{ emploi.titre}} </h5>
+                <br>
+
+
+                <p class="card-text"> {{ emploi.reference}} </p>
+
+                <p class="card-text">{{emploi.etat}} </p>
+                <p class="card-text"> {{emploi.entreprise}}</p>
+
+
+                <br>
+                <button type="button" class="btn btn-primary" [disabled]="emploi.etat == false"> Postuler </button>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
